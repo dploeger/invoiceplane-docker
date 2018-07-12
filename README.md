@@ -6,6 +6,11 @@ This thing started, because [InvoicePlane](https://invoiceplane.com/) 2.0 needs 
 
 ## Usage
 
+Clone the repository with the submodules
+
+    git clone --recurse-submodules https://github.com/dploeger/invoiceplane-docker.git
+    cd invoiceplane-docker
+
 There currently are two flavors for running InvoicePlane 2.0. One with a MySQL container included and one without, but a connection to a remote MySQL server prepared.
 
 Look into the both files docker-composer-mysql.yaml and docker-compose.yaml about how to configure and run them.
