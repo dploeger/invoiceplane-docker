@@ -1,0 +1,17 @@
+# A docker compose service for InvoicePlane, but with a local MySQL database
+# MYSQL_IP=<ip of your host> docker-compose -f docker-compose.yaml up --build --detach
+#
+# Alternatively, create an .env file and configure the environment there:
+#    MYSQL_IP: IP of your MySQL database
+#    IP_PORT: Port, the InvoicePlane container will expose (defaults to 8080)
+
+version: "3"
+services:
+    web:
+        build: ./web
+        volumes: 
+            - "./ip:/var/www/html"
+        ports: 
+            - "${IP_PORT:-8080}:80"
+        extra_hosts:
+            - "mysql:${MYSQL_IP}"

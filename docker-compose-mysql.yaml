@@ -1,0 +1,25 @@
+
+# A docker compose service for InvoicePlane with MySQL included
+# docker-compose -f docker-compose-mysql.yaml up --build --detach
+#
+# Alternatively, create an .env file and configure the environment there:
+#    IP_PORT: Port, the InvoicePlane container will expose (defaults to 8080)
+#    MYSQL_DATA_PATH: Path to the MySQL data files (defaults to ./db)
+#    MYSQL_ROOT_PASSWORD: Root password of MySQL database (defaults to password)
+#    MYSQL_DATABASE: Database name to create for IP (defaults to invoiceplane)
+
+version: "3"
+services:
+    web:
+        build: "./web"
+        volumes: 
+            - "./ip:/var/www/html"
+        ports: 
+            - "${IP_PORT:-8080}:80"
+    mysql:
+        image: "mysql:5"
+        volumes:
+            - "${MYSQL_DATA_PATH:-./db}:/var/lib/mysql"
+        environment:
+            MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-password}"
+            MYSQL_DATABASE: "invoiceplane"
