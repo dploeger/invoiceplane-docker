@@ -8,6 +8,8 @@ cd /var/www/html && grunt build
 
 cp -r /addons/* /var/www/html/custom/addons
 
+cp /trustedproxy.php /var/www/html/config
+
 chmod -R 0777 /var/www/html/storage
 chmod -R 0777 /var/www/html/bootstrap/cache
 
