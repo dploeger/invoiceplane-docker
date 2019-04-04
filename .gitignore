@@ -1,5 +1,4 @@
 .env
 .vscode
 db
-web/addons/*
-!web/addons/.gitkeep
+ip
