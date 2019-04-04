@@ -6,27 +6,10 @@ This thing started, because [InvoicePlane](https://invoiceplane.com/) 2.0 needs 
 
 ## Usage
 
-Clone the repository with the submodules
+To use the container, download the latest invoiceplane 2.0 version and run
 
-    git clone --recurse-submodules https://github.com/dploeger/invoiceplane-docker.git
-    cd invoiceplane-docker
+    docker run --name invoiceplane -v <path to invoiceplane>:/var/www/html --add-host mysql:<ip of your mysql server> dploeger/invoiceplane
 
-There currently are two flavors for running InvoicePlane 2.0. One with a MySQL container included and one without, but a connection to a remote MySQL server prepared.
+## Docker compose
 
-Look into the both files docker-composer-mysql.yaml and docker-compose.yaml about how to configure and run them.
-
-After starting the containers, please wait some seconds until composer downloads dependent packages (see docker compose -f <docker-compose-filename you used> logs -f for progress). 
-
-Then open InvoicePlane using 
-
-    http://localhost:8080/setup
-
-(if you haven't modified the port)
-
-## Usage behind a proxy server
-
-If you plan to use the container with a reverse proxy before it (i.e. Apache or NGINX), you'll have to set the following line in ip/app/Http/Middleware/TrustProxies.php:
-
-    protected $proxies = "**";
-
-(or set the IPs of all your reverse proxies, if you have them)
+In the contrib subfolder, you can find docker-compose templates, that run invoiceplane and invoiceplane together with a MySQL container.

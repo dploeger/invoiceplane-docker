@@ -8,7 +8,7 @@
 version: "3"
 services:
     web:
-        build: ./web
+        image: "dploeger/invoiceplane:latest"
         volumes: 
             - "./ip:/var/www/html"
         ports: 

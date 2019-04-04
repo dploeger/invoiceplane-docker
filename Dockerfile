@@ -17,5 +17,7 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 COPY trustedproxy.php /
 
+EXPOSE 80
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
