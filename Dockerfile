@@ -15,8 +15,6 @@ RUN bash /install_composer.sh
 COPY docker-entrypoint.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-COPY trustedproxy.php /
-
 EXPOSE 80
 
 ENTRYPOINT ["docker-entrypoint.sh"]

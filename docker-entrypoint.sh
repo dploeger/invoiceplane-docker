@@ -6,8 +6,6 @@ cd /var/www/html && php /composer.phar install --no-dev
 cd /var/www/html && npm install
 cd /var/www/html && grunt build
 
-cp /trustedproxy.php /var/www/html/config
-
 chmod -R 0777 /var/www/html/storage
 chmod -R 0777 /var/www/html/bootstrap/cache
 
